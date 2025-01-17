@@ -26,14 +26,9 @@ Thiết bị sử dụng:
 
 # Demo
 
-<!-- ![](videos/demo1.mp4) -->
-<video width="640" height="480" controls>
-  <source src="videos/demo1.mp4" type="video/mp4">
-</video>
+Các video demo khác được lưu trong folder `videos`
 
-<video width="512" height="288" controls>
-  <source src="videos/demo2.mp4" type="video/mp4">
-</video>
+https://github.com/user-attachments/assets/feb930c8-9e68-4490-a6c8-f4fe10c11c26
 
 # Lưu ý
 
