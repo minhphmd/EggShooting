@@ -1,8 +1,44 @@
-# STM32F429I_DISCO_REV_E01 TBS
+# Mô tả
 
-The default IDE is set to STM32CubeIDE, to change IDE open the STM32F429I_DISCO_REV_E01.ioc with STM32CubeMX and select from the supported IDEs (EWARM from version 8.50.9, MDK-ARM, and STM32CubeIDE). Supports flashing of the STM32F429I_DISCO_REV_E01 board directly from TouchGFX Designer using GCC and STM32CubeProgrammer. Flashing the board requires STM32CubeProgrammer which can be downloaded from the ST webpage. 
+EggShooting là phiên bản đơn giản của trò chơi Dynomite! (bắn trứng khủng long) của hãng game Popcap nhưng được xây dựng để có thể chơi trên kit phát triển STM32F429I-DISC1. Dự án được xây dựng để phục vụ cho học phần Hệ nhúng (IT4210). Chi tiết về việc phát triển dự án được viết lại đầy đủ trong [báo cáo bài tập lớn](report/report.pdf).
 
-This TBS is configured for 320 x 240 pixels 16bpp screen resolution.  
+![Ảnh minh họa trò chơi EggShooting](imgs/egg_shooting.jpg)
 
-Performance testing can be done using the GPIO pins designated with the following signals: VSYNC_FREQ  - Pin PE2, RENDER_TIME - Pin PE3, FRAME_RATE  - Pin PE4, MCU_ACTIVE  - Pin PE5
- 
+# Hướng dẫn sử dụng
+
+## Lắp mạch
+Thiết bị sử dụng:
+- Kit phát triển STM32F429I-DISC1
+- Loa buzzer 3V
+    - Chân (+) nối tới chân PA9 của kit STM32
+    - Chân (-) nối tới chân GND của kit STM32
+- Ba nút bấm 
+    - Lắp vào mạch với cấu hình là pull-up mode
+    - Nút dịch trái nối tới chân PG2
+    - Nút dịch phải nối tới chân PG3
+    - Nút bắn nối tới chân PA14
+
+## Môi trường lập trình:
+- STM32 CubeIDE: IDE + compiler + debugger
+- STM32CubeF4: driver + library
+- ST-LINK009: USB driver
+- TouchGFX: GUI design
+
+# Demo
+
+<!-- ![](videos/demo1.mp4) -->
+<video width="640" height="480" controls>
+  <source src="videos/demo1.mp4" type="video/mp4">
+</video>
+
+<video width="512" height="288" controls>
+  <source src="videos/demo2.mp4" type="video/mp4">
+</video>
+
+# Lưu ý
+
+1. Một vài lỗi nhỏ (hiếm gặp) trong việc xử lý nổ trứng đã gặp phải trong quá trình chơi:
+    - Một số quả bóng lơ lửng không bị nổ (các quả trứng nằm ở biên trái màn hình).
+    - Quả trứng khi bắn ra rơi vào ô đi qua vạch kẻ thua nhưng vẫn nổ trứng, và trò chơi tiếp tục diễn ra.
+2. Project không sử dụng đến file `.ioc` nên phần code khởi tạo và file cấu hình `.ioc` có thể không trùng khớp.
+3. Phần gạch trắng ở phía trên màn hình trong các demo là lỗi màn hình hiển thị của kit, không phải tính năng của trò chơi.
